@@ -23,6 +23,9 @@ BONUS
 -Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.
  */
 
+
+
+
 const profili =[
 {
 id: 1,
@@ -50,28 +53,34 @@ likes: 70
 
  let profilo = document.querySelector(".container")
 
- profilo.innerHTML = `
+ profili.forEach( (element) =>{
+
+
+
+ 
+
+ profilo.innerHTML += `
   <!--profile start-->
  <div class="profile p-3">
  
  <div class="img-name-date"> 
-<img class="profile-image" src=${profili[0].foto} alt="profile img">
+<img class="profile-image" src=${element.foto} alt="profile img">
 
 <div class="name-date">
- <span> <strong>${profili[0].nome}</strong></span>
- <span>${profili[0].data}</span>
+ <span> <strong>${element.nome}</strong></span>
+ <span>${element.data}</span>
 </div>
 </div>
 
-<p class="mt-3 mb-3">${profili[0].testo}</p>
+<p class="mt-3 mb-3">${element.testo}</p>
 
-<img  class="big-img"  src=${profili[0].immagine} alt="big img">
+<img  class="big-img"  src=${element.immagine} alt="big img">
 
 <div class="stats-btn d-flex justify-content-around mt-4 mb-4 ">
 <button type="button" id="btn"><i class="fa-solid fa-thumbs-up"></i> Mi piace</button>
 
 <div class="statistics">
-   piace a <strong id="love">${profili[0].likes}</strong> persone
+   piace a <strong id="love">${element.likes}</strong> persone
 </div>
 </div>
 
@@ -80,26 +89,32 @@ likes: 70
 <!--profile end-->
  
  `
-
+ 
+ 
 
  // collego il pulsante al numero di like in modo tale che cliccando me lo aumenta
 
-let pulsanteEl = document.querySelector("#btn")
+ let pulsanteEl = document.querySelector("#btn")
 let numeroDiLikesEl = document.querySelector("#love")
 let numeroDiClicchi =[]
+let idPostPiaciuti=[]
 
 pulsanteEl.addEventListener("click",function(){
+    idPostPiaciuti.push(element.id)
+    console.log(idPostPiaciuti)
  
   numeroDiClicchi.push("cliccato")  
 
 if( !(numeroDiClicchi.length % 2 == 0)){
 
     pulsanteEl.classList.add("on")
-    numeroDiLikesEl.innerHTML = profili[0].likes +1 
+    numeroDiLikesEl.innerHTML = element.likes +1 
 } else{
     pulsanteEl.classList.remove("on")
-    numeroDiLikesEl.innerHTML = profili[0].likes 
+    numeroDiLikesEl.innerHTML = element.likes 
 } 
 
 })
 
+
+})
