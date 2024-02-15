@@ -36,10 +36,12 @@
     height: 300px;
  }
 
- button:active{
+ .on{
     background-color: lightgray;
     color:brown;
  }
+
+ 
 
 
  

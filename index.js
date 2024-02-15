@@ -71,7 +71,7 @@ likes: 70
 <button type="button" id="btn"><i class="fa-solid fa-thumbs-up"></i> Mi piace</button>
 
 <div class="statistics">
-   piace a <strong>${profili[0].likes}</strong> persone
+   piace a <strong id="love">${profili[0].likes}</strong> persone
 </div>
 </div>
 
@@ -80,4 +80,26 @@ likes: 70
 <!--profile end-->
  
  `
+
+
+ // collego il pulsante al numero di like in modo tale che cliccando me lo aumenta
+
+let pulsanteEl = document.querySelector("#btn")
+let numeroDiLikesEl = document.querySelector("#love")
+let numeroDiClicchi =[]
+
+pulsanteEl.addEventListener("click",function(){
+ 
+  numeroDiClicchi.push("cliccato")  
+
+if( !(numeroDiClicchi.length % 2 == 0)){
+
+    pulsanteEl.classList.add("on")
+    numeroDiLikesEl.innerHTML = profili[0].likes +1 
+} else{
+    pulsanteEl.classList.remove("on")
+    numeroDiLikesEl.innerHTML = profili[0].likes 
+} 
+
+})
 
