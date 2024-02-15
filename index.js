@@ -22,3 +22,28 @@ BONUS
 -Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).
 -Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.
  */
+
+const profili =[
+{
+id: 1,
+nome: "Davide Marconi",
+foto: "https://unsplash.it/300/300?image=",
+data: "15/02/2024",
+testo:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet totam sint maxime rerum adipisci eaque inventore ab quos quasi necessitatibus?",
+immagine:"https://unsplash.it/300/300?image=",
+likes: 70
+},
+
+{
+    id: 2,
+    nome: "Marco Mengoni",
+    foto: "https://unsplash.it/300/300?image=",
+    data: "14/01/2020",
+    testo:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet totam sint maxime rerum adipisci eaque inventore ab quos quasi necessitatibus?",
+    immagine:"https://unsplash.it/300/300?image=",
+    likes: 700
+    }
+
+]
+
+console.log(profili[0].testo)
