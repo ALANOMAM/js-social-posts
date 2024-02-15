@@ -36,5 +36,10 @@
     height: 300px;
  }
 
+ button:active{
+    background-color: lightgray;
+    color:brown;
+ }
+
 
  

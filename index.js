@@ -58,12 +58,12 @@ likes: 70
 <img class="profile-image" src=${profili[0].foto} alt="profile img">
 
 <div class="name-date">
- <span>${profili[0].nome}</span>
+ <span> <strong>${profili[0].nome}</strong></span>
  <span>${profili[0].data}</span>
 </div>
 </div>
 
-<p>${profili[0].testo}</p>
+<p class="mt-3 mb-3">${profili[0].testo}</p>
 
 <img  class="big-img"  src=${profili[0].immagine} alt="big img">
 
@@ -71,7 +71,7 @@ likes: 70
 <button type="button" id="btn"><i class="fa-solid fa-thumbs-up"></i> Mi piace</button>
 
 <div class="statistics">
-   piace a <span>${profili[0].likes}</span> persone
+   piace a <strong>${profili[0].likes}</strong> persone
 </div>
 </div>
 
