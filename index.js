@@ -46,4 +46,37 @@ likes: 70
 
 ]
 
-console.log(profili[0].testo)
+ //console.log(profili[0].testo)
+
+ let profilo = document.querySelector(".container")
+
+ profilo.innerHTML = `
+  <!--profile start-->
+ <div class="profile p-3">
+ 
+ <div class="img-name-date"> 
+<img class="profile-image" src=${profili[0].foto} alt="profile img">
+
+<div class="name-date">
+ <span>${profili[0].nome}</span>
+ <span>${profili[0].data}</span>
+</div>
+</div>
+
+<p>${profili[0].testo}</p>
+
+<img  class="big-img"  src=${profili[0].immagine} alt="big img">
+
+<div class="stats-btn d-flex justify-content-around mt-4 mb-4 ">
+<button type="button" id="btn"><i class="fa-solid fa-thumbs-up"></i> Mi piace</button>
+
+<div class="statistics">
+   piace a <span>${profili[0].likes}</span> persone
+</div>
+</div>
+
+ </div>  
+<!--profile end-->
+ 
+ `
+
