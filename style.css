@@ -1,0 +1,25 @@
+ 
+ body{
+    background-color: blanchedalmond;
+ }
+
+ .schema *{
+    border: 1px black solid;
+ }
+
+.img-name-date{
+    display: flex;
+    align-items: center;
+    gap:20px;
+}
+
+.name-date{
+    display: flex;
+    flex-direction: column;
+}
+
+ .profile-image{
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+ }
