@@ -51,15 +51,16 @@ likes: 70
 
  //console.log(profili[0].testo)
 
+ // creo una costante che contiene il mio mega contenitore che contiene i miei profili 
  let profilo = document.querySelector(".container")
 
  profili.forEach( (element) =>{
 
-
-
+   //creo un nuovo div contenitore 
+ const newpost = document.createElement("div")
  
-
- profilo.innerHTML += `
+ //inietto dentro il div appena creato questo pezzo di codice 
+ newpost.innerHTML  = `
   <!--profile start-->
  <div class="profile p-3">
  
@@ -77,44 +78,71 @@ likes: 70
 <img  class="big-img"  src=${element.immagine} alt="big img">
 
 <div class="stats-btn d-flex justify-content-around mt-4 mb-4 ">
-<button type="button" id="btn"><i class="fa-solid fa-thumbs-up"></i> Mi piace</button>
+<button type="button" id="btn" data-postid="${element.id}" ><i class="fa-solid fa-thumbs-up"></i> Mi piace</button>
 
 <div class="statistics">
-   piace a <strong id="love">${element.likes}</strong> persone
+   piace a <strong  id="like-counter-${element.id}"  >${element.likes}</strong> persone
 </div>
 </div>
 
 
  </div>  
 <!--profile end-->
- 
+
  `
+ newpost.className = "post";
+
+ //inietto dentro il mio mega contenitore salvato dentro la variabile "profilo" 
+ //il div creato poco prima salvato dentro la variabile "newpost" che contiene un pezzo del mio codice
+ //passaggio neccessario quando si crea un nuovo elemento.
+ profilo.append(newpost)
+ 
  
  
 
  // collego il pulsante al numero di like in modo tale che cliccando me lo aumenta
 
- let pulsanteEl = document.querySelector("#btn")
-let numeroDiLikesEl = document.querySelector("#love")
+let pulsanteEl = document.querySelector(`button[data-postid="${element.id}"]`)
+ let numeroDiLikesEl = document.querySelector(`strong[id="like-counter-${element.id}"]`)
 let numeroDiClicchi =[]
 let idPostPiaciuti=[]
 
 pulsanteEl.addEventListener("click",function(){
-    idPostPiaciuti.push(element.id)
-    console.log(idPostPiaciuti)
- 
-  numeroDiClicchi.push("cliccato")  
 
-if( !(numeroDiClicchi.length % 2 == 0)){
+     numeroDiClicchi.push(element.id) 
+    //console.log(numeroDiClicchi)
+
+
+    if(!(idPostPiaciuti.includes(element.id))){
+
+
+        idPostPiaciuti.push(element.id)
+        console.log(idPostPiaciuti)
+    }
+  
+   
+    
+
+if( /* !(numeroDiClicchi.includes(element.id)) ||*/ !(numeroDiClicchi.length % 2 == 0) ){
+      
+
+     //numeroDiClicchi.push(element.id) 
+     //console.log(numeroDiClicchi)
 
     pulsanteEl.classList.add("on")
-    numeroDiLikesEl.innerHTML = element.likes +1 
+     
+    
+    numeroDiLikesEl.innerHTML = element.likes + 1
 } else{
     pulsanteEl.classList.remove("on")
+     
     numeroDiLikesEl.innerHTML = element.likes 
 } 
 
-})
+}) 
 
 
 })
+
+
+ 
